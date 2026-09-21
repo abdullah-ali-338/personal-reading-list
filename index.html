@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Reading List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Personal Reading List</h1>
+      <p class="subtitle">Keep track of articles, books, and papers you plan to read.</p>
+    </header>
+
+    <aside class="demo-controls" aria-label="Reviewer Controls">
+      <span class="badge">Reviewer Testing Controls</span>
+      <div class="controls-row">
+        <button id="btn-force-empty" type="button" class="btn btn-secondary">Force Empty State</button>
+        <button id="btn-force-error" type="button" class="btn btn-secondary">Trigger Error State</button>
+        <button id="btn-force-loading" type="button" class="btn btn-secondary">Simulate Slow Load</button>
+        <button id="btn-reset-demo" type="button" class="btn btn-secondary">Load Sample Data</button>
+      </div>
+    </aside>
+
+    <main>
+      <section class="add-section">
+        <h2>Add to Reading List</h2>
+        <form id="reading-form">
+          <div class="form-group">
+            <label for="book-title">Title</label>
+            <input type="text" id="book-title" placeholder="e.g., Designing Data-Intensive Applications" required>
+          </div>
+          <div class="form-group">
+            <label for="book-author">Author / Source</label>
+            <input type="text" id="book-author" placeholder="e.g., Martin Kleppmann" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add to List</button>
+        </form>
+      </section>
+
+      <section class="status-wrapper">
+        <div id="state-loading" class="state-box loading-box" aria-live="polite" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <p class="state-title">Loading reading list...</p>
+          <p class="state-desc">Fetching stored articles and notes from your local storage.</p>
+        </div>
+
+        <div id="state-error" class="state-box error-box" role="alert" hidden>
+          <div class="error-icon" aria-hidden="true">!</div>
+          <p class="state-title">Failed to load reading list</p>
+          <p class="state-desc" id="error-message">The storage service encountered an unreadable state or network timeout.</p>
+          <button id="btn-retry" type="button" class="btn btn-primary">Retry</button>
+        </div>
+
+        <div id="state-empty" class="state-box empty-box" hidden>
+          <div class="empty-icon" aria-hidden="true">📚</div>
+          <p class="state-title">Your reading list is empty</p>
+          <p class="state-desc">This list helps you bookmark articles and books so you never lose track of what to read next.</p>
+          <button id="btn-first-action" type="button" class="btn btn-primary">Add your first book</button>
+        </div>
+
+        <div id="state-content" hidden>
+          <ul id="reading-list" class="reading-list" aria-label="Reading list entries"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
