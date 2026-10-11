@@ -1,22 +1,35 @@
-# Personal Reading List (State and Data)
+# 📚 Personal Reading List (State & Data)
 
-A single-page reading list backed by a persistent storage implementation (`localStorage`), complete with handling for loading, error, and empty states, plus full item addition and deletion.
+![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![License](https://img.shields.io/badge/License-Personal_Use-blue?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/Stack-HTML5_%7C_CSS3_%7C_JS-orange?style=for-the-badge)
 
-## Demonstrating All Three States (Reviewer Guide)
+A single-page reading list backed by a persistent storage implementation (`localStorage`), complete with explicit state handling for loading, error, and empty states, plus full item addition and deletion.
 
-A dedicated testing toolbar is placed at the top of the interface so all states can be evaluated without touching source code:
+🌐 **Live Demo:** [personal-reading-list.vercel.app](https://personal-reading-list.vercel.app/)
 
-1. **Empty State**:
-   - Click the **"Force Empty State"** button (or delete every added item using the "Remove" buttons).
-   - What happens: The view reveals a dedicated dashed empty container explaining that the list keeps track of books and articles, paired with a direct primary call-to-action button ("Add your first book") that moves focus to the title input.
+---
 
-2. **Error State**:
-   - Click the **"Trigger Error State"** button.
-   - What happens: The list enters an explicit error state styled with red accents and warning alerts. It details what failed ("Failed to synchronize with local persistent storage") and provides an actionable "Retry" button that recovers and reloads the data.
+## ✨ Features
 
-3. **Loading State**:
-   - Click the **"Simulate Slow Load"** button.
-   - What happens: The view triggers a 2.5-second simulated network/storage retrieval displaying an animated loading spinner and distinct descriptive text ("Loading reading list...").
+- **Persistent Web Storage:** Full CRUD functionality for books and articles with automatic state sync via `localStorage`.
+- **Comprehensive UI States:** Native views built to handle loading, error recovery, empty lists, and populated book collections.
+- **Interactive Reviewer Toolbar:** Dedicated top toolbar designed to simulate network delays, force storage exceptions, and reload sample data instantly.
+- **Zero-Build Architecture:** Single-file web application powered by vanilla JavaScript and native DOM manipulation.
 
-4. **Populated State**:
-   - Click **"Load Sample Data"** or use the input form to add books. Items persist across page refreshes.
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+ Web Storage API, Async State Handlers)
+- **Persistence:** Browser `localStorage` API
+- **Deployment & Hosting:** Vercel Static Hosting
+
+---
+
+## 📁 Repository Structure
+
+```text
+PersonalReadingList/
+├── index.html          # Consolidated dashboard layout and state templates
+├── app.js             # Data handlers
